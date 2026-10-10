@@ -1,0 +1,156 @@
+/* Cheater detected, modelled on VALORANT's match-terminated screen.
+   Used by /cd and the free VP prank page. */
+
+.cheater {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2.5vw;
+  background: #cd1a2e;
+  color: #fff;
+  font-family: 'Barlow', 'DIN Alternate', 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cheater[hidden] {
+  display: none;
+}
+
+.cheater::before,
+.cheater::after {
+  content: '';
+  position: absolute;
+  left: 2.5vw;
+  right: 2.5vw;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.cheater::before {
+  top: 4.5vh;
+}
+
+.cheater::after {
+  bottom: 4.5vh;
+}
+
+.cheater-back {
+  position: absolute;
+  top: 6.5vh;
+  right: 4.5vw;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border: 0;
+  background: none;
+  color: #fff;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cheater-back svg {
+  width: 30px;
+  height: 30px;
+}
+
+.cheater-logo {
+  width: clamp(96px, 10.5vw, 190px);
+  margin-top: 10vh;
+}
+
+.cheater h2 {
+  margin: 8vh 0 0;
+  font-size: clamp(2rem, 4.2vw, 5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: 0.08em;
+}
+
+.cheater h3 {
+  margin: 4.5vh 0 0;
+  font-size: clamp(1.25rem, 1.85vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.cheater p {
+  max-width: 62em;
+  margin: 2px 0 0;
+  font-size: clamp(0.875rem, 0.95vw, 1.125rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.cheater-continue {
+  margin-top: auto;
+  margin-bottom: 12vh;
+  min-width: clamp(150px, 12.5vw, 240px);
+  padding: 0.5em 2em;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font: inherit;
+  font-size: clamp(1.125rem, 1.35vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+
+.cheater-continue:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.cheater :focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 3px;
+}
+
+/* Phones: bigger text, room at the sides, and the logo clear of the Back button */
+@media (max-width: 600px) {
+  .cheater {
+    padding: 0 24px;
+  }
+
+  .cheater::before,
+  .cheater::after {
+    left: 16px;
+    right: 16px;
+  }
+
+  .cheater-back {
+    top: calc(4.5vh + 12px);
+    right: 16px;
+    font-size: 0.8125rem;
+  }
+
+  .cheater-logo {
+    margin-top: 16vh;
+  }
+
+  .cheater h2 {
+    margin-top: 6vh;
+    font-size: 2.25rem;
+  }
+
+  .cheater h3 {
+    margin-top: 3.5vh;
+    font-size: 1.375rem;
+  }
+
+  .cheater p {
+    margin-top: 8px;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+}

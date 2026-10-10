@@ -3,57 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex">
-    <title>Claim Free VALORANT points - Cypher's Laptop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>free vp</title>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Claim Free VALORANT points - Cypher's Laptop">
     <meta property="og:site_name" content="Cypher's Laptop">
+    <meta property="og:title" content="FREE VALORANT POINTS (real) (not a scam)">
+    <meta property="og:description" content="{% if target %}{{ target }}, {% endif %}click here for free vp. 100% legit no virus. hurry before riot patches it">
+    <meta name="theme-color" content="#00ff00">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icons/icon_32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600&amp;family=Barlow:wght@500;600&amp;display=swap">
+    <link rel="stylesheet" href="/static/css/cheater.css">
     <style>
-        /* Add a class to the body element */
-
-        @media only screen and (max-width: 480px) {
-            h1 {
-                font-size:100px;
-            }
-        }
-
         body {
-            font-size: 90%;
-            background-color: #333333;
-            color: #cccccc;
-        }
-        /* Add a class for the dark mode */
-        .dark-mode {
-            background-color: #333333;
-            color: #cccccc;
-        }
-        :root {
-            --primary-color: #fff;
-            --secondary-color: #000;
-            --tertiary-color: #00ff00;
-        }
-        #vp-button {
-            background-color: transparent;
-            color: var(--primary-color);
-            padding: 10px 15px;
-            border-radius: 5px;
-            border-color: #5865f2;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            box-sizing: border-box;
+            margin: 0;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 40%, #2b3f4e 0%, #1a2631 65%);
+            color: #e4eaee;
+            font-family: 'Saira', 'Helvetica Neue', Arial, sans-serif;
         }
 
-        #vp-button:hover {
-            background-color: #5865f2;
-            color: var(--tertiary-color);
+        h1 {
+            margin: 0 0 24px;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        #vp-button {
+            padding: 14px 28px;
+            border: 0;
+            border-radius: 8px;
+            background: #5865f2;
+            color: #fff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        #minty {
+            min-height: 1.6em;
+            margin: 24px 0 0;
+            color: #8fa3b1;
+        }
+
+        .credit {
+            position: fixed;
+            bottom: 16px;
+            left: 0;
+            right: 0;
+            margin: 0;
+            color: #8fa3b1;
+            font-size: 0.875rem;
         }
     </style>
-    <!-- <meta property="og:image" content="{{ image }}"> -->
-    <meta property="og:description" content="{{ target }}, get your free VALORANT points from Cypher's Laptop now! 100% fuss free, and definitely no scam.">
 </head>
 <body>
-    <h1>Made by Argon</h1>
-    <p id="minty"></p>
-    <button id="vp-button">Get Free VP</button>
+    <h1>Get Free VP</h1>
+    <button id="vp-button" type="button">click here for free VP</button>
+    <p id="minty" aria-live="polite"></p>
+    <p class="credit">Made by Argon</p>
+
+    {% set cheater_hidden = true %}
+    {% include '_cheater.html' %}
+
     <script type="text/javascript" src="{{ url_for('static', filename = 'js/vp-button.js') }}"></script>
-  </body>
+</body>
 </html>

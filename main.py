@@ -25,12 +25,19 @@ def video():
         return render_template('video.html', video_url=video_url, title=title, description=description, image=image,
                                text=text)
     else:
-        abort(400, "Missing url parameter")
+        if os.getenv("RAILWAY_ENVIRONMENT_NAME"):
+            return redirect("/", code=302)
+        else:
+            return abort(400, "Missing url parameter")
 
 @app.route('/freevalorantpoints')
 @app.route('/freevalorantpoints.html')
 def freevalorantpoints():
     return render_template('freevp.html', target=request.args.get('target'))
+
+@app.route('/cd')
+def cheater_detected():
+    return render_template('cd.html')
 
 @app.route('/privacy')
 @app.route('/privacy.html')

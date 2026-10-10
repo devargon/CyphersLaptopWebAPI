@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VALORANT</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="day in the life of a valorant hacker">
+    <meta property="og:description" content="(gone wrong)">
+    <meta name="theme-color" content="#cd1a2e">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icons/icon_32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600&amp;display=swap">
+    <link rel="stylesheet" href="/static/css/cheater.css">
+    <script>
+        // Only fade in when JavaScript is on; without it the page shows straight away
+        document.documentElement.classList.add('js');
+    </script>
+    <style>
+        body {
+            margin: 0;
+            background: #cd1a2e;
+        }
+
+        /* Fade in from black */
+        .js body {
+            background: #000;
+        }
+
+        .js .cheater {
+            animation: fade-in 0.6s ease-in both;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .js .cheater {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include '_cheater.html' %}
+
+    <script>
+        // Back returns to wherever they came from, or the home page if they opened the link directly
+        document.getElementById('cheater-back').addEventListener('click', function () {
+            if (document.referrer && history.length > 1) {
+                history.back();
+            } else {
+                location.href = '/';
+            }
+        });
+    </script>
+</body>
+</html>

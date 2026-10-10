@@ -1,5 +1,4 @@
 const button = document.getElementById("vp-button");
-button.style.position = "absolute";
 button.addEventListener("touchstart", moveButton);
 button.addEventListener("mouseover", moveButton);
 
@@ -7,9 +6,23 @@ var count = 0;
 var counter = document.getElementById('minty');
 
 function moveButton(event) {
-    event.target.style.top = Math.floor(Math.random() * (window.innerHeight-20)) + "px";
-    event.target.style.left = Math.floor(Math.random() * (window.innerWidth-20)) + "px";
+    // Keep the whole button on screen
+    button.style.position = "fixed";
+    button.style.top = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight)) + "px";
+    button.style.left = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth)) + "px";
     count += 1;
-    counter.innerHTML = `You tried getting free VP ${count} times `;
+    counter.textContent = `You tried getting free VP ${count} times`;
 }
 
+// The button runs from the mouse, so anyone who manages to click it must be cheating
+var cheater = document.getElementById('cheater');
+
+button.addEventListener("click", function () {
+    cheater.hidden = false;
+    cheater.querySelector('.cheater-continue').focus();
+});
+
+document.getElementById('cheater-back').addEventListener("click", function () {
+    cheater.hidden = true;
+    button.focus();
+});

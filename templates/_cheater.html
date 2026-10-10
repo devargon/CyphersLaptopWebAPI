@@ -1,0 +1,24 @@
+{# VALORANT-style "Cheater detected" screen, shared by /cd and the free VP prank page.
+   Set cheater_hidden = true before including to start it hidden. #}
+<section class="cheater" id="cheater" role="alertdialog" aria-labelledby="cheater-title"{% if cheater_hidden %} hidden{% endif %}>
+    <button class="cheater-back" type="button" id="cheater-back">
+        <svg viewBox="0 0 30 30" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true">
+            <path d="M15 3 L3 15 L15 27"/>
+            <path d="M21 3 L9 15 L21 27"/>
+            <rect x="17.5" y="13.5" width="3" height="3" fill="#fff" stroke="none" transform="rotate(45 19 15)"/>
+        </svg>
+        Back
+    </button>
+
+    <svg class="cheater-logo" viewBox="0 0 130 170" fill="#fff" aria-hidden="true">
+        <path d="M25 0 H105 Q112 0 113 7 L112 16 L70 101 Q65 109 60 101 L18 16 L17 7 Q18 0 25 0 Z"/>
+        <path d="M2 102 L22 66 Q24 62 27 66 L65 136 L103 66 Q106 62 108 66 L128 102 Q130 106 128 110 L70 166 Q65 171 60 166 L2 110 Q0 106 2 102 Z"/>
+    </svg>
+
+    <h2 id="cheater-title">Cheater detected</h2>
+    <h3>Match terminated</h3>
+    <p>A cheater has been punished and your game has been cancelled, no win or loss has been credited for any
+        players.</p>
+
+    <a class="cheater-continue" href="/">Continue</a>
+</section>
