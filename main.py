@@ -1,6 +1,6 @@
 import time
 
-from flask import Flask, redirect, render_template, request, abort, jsonify
+from flask import Flask, redirect, render_template, request, abort, jsonify, Response
 import os
 
 app = Flask(__name__)
@@ -15,22 +15,15 @@ def video():
     text = request.args.get('text')
     image = request.args.get('image')
     if video_url:
-        # Parse the video name and file format
-        video_name, file_format = os.path.splitext(os.path.basename(video_url))
-        # Set the title and description
-        if text:
-            title = text
-        else:
-            title = video_name
-        description = file_format
-        # If the name or format could not be parsed, use a fallback value
-        if not title:
-            title = "Video"
+        # File names are IDs, so only show a name when one is given (e.g. the skin variant name)
+        title = text or "Video"
+        description = os.path.splitext(os.path.basename(video_url))[1]
         if not description:
             description = "Video file"
         if not image:
             image = ""
-        return render_template('video.html', video_url=video_url, title=title, description=description, image=image)
+        return render_template('video.html', video_url=video_url, title=title, description=description, image=image,
+                               text=text)
     else:
         abort(400, "Missing url parameter")
 
@@ -42,13 +35,13 @@ def freevalorantpoints():
 @app.route('/privacy')
 @app.route('/privacy.html')
 def privacy():
-    return render_template('privacy.html')
+    return redirect('https://nogra.app/privacy', code=301)
 
 
 @app.route('/terms')
 @app.route('/terms.html')
 def terms():
-    return render_template('terms.html')
+    return redirect('https://nogra.app/terms', code=301)
 
 
 @app.route('/')
@@ -60,6 +53,20 @@ def index():
 @app.route('/index')
 def index_2():
     return redirect('/')
+
+
+@app.route('/robots.txt')
+def robots():
+    return Response("User-agent: *\nAllow: /\n\nSitemap: https://cypherslaptop.nogra.app/sitemap.xml\n",
+                    mimetype='text/plain')
+
+
+@app.route('/sitemap.xml')
+def sitemap():
+    return Response('<?xml version="1.0" encoding="UTF-8"?>\n'
+                    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                    '  <url><loc>https://cypherslaptop.nogra.app/</loc></url>\n'
+                    '</urlset>\n', mimetype='application/xml')
 
 
 @app.route('/status')

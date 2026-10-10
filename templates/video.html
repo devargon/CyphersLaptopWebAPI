@@ -13,8 +13,10 @@
 
         gtag('config', 'G-JN8N7WZDPJ');
     </script>
-    <title>Title</title>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if text %}{{ text }} - Cypher's Laptop{% else %}Cypher's Laptop{% endif %}</title>
     <meta property="og:type" content="video.other">
     <meta property="og:video" content="{{ video_url }}">
     <meta property="og:video" content="{{ video_url }}">
@@ -26,77 +28,191 @@
     <meta property="og:image:height" content="720">
     <meta property="og:video:width" content="1280">
     <meta property="og:video:height" content="720">
+    <meta name="theme-color" content="#1a2631">
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/static/img/icons/icon_180.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/img/icons/icon_16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/static/img/icons/icon_32.png">
     <link rel="icon" type="image/png" sizes="180x180" href="/static/img/icons/icon_180.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/static/img/icons/icon_192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/static/img/icons/icon_512.png">
-    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&amp;display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli&amp;display=swap">
-    <link rel="stylesheet" href="/static/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/css/untitled.css">
-    <style>
-        .navbar {
-            background-color: white !important;
-        }
-
-        .navbar-nav .nav-link {
-            color: black !important;
-        }
-
-        .navbar-shrink .navbar-nav .nav-link {
-            color: black !important;
-        }
-    </style>
+          href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@600&amp;family=Saira:wght@400;500;600&amp;display=swap">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/video.css">
 </head>
+
 <body>
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="56">
-<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-    <div class="container"><a class="navbar-brand" href="./"
-                              style="font-family: Lato, sans-serif;font-weight: bold;"><img
-            src="./static/img/icons/icon_32.png" width="32" height="32" style="border-radius: 50%;margin-right: 15px;">Cypher's
-        Laptop</a>
-        <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler float-end"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i
-                class="fa fa-bars"></i></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="./terms">Terms</a></li>
-                <li class="nav-item"><a class="nav-link" href="./privacy">Privacy</a></li>
-                <li class="nav-item"><a class="nav-link" href="./invite">Invite</a></li>
-            </ul>
-        </div>
+<svg width="0" height="0" style="position: absolute">
+    <symbol id="discord" viewBox="0 0 16 16"><path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path></symbol>
+</svg>
+
+<nav class="nav">
+    <div class="wrap">
+        <a class="brand" href="/"><img src="/static/img/icons/icon_32.png" alt="">Cypher's Laptop</a>
+        <a class="nav-link" href="/terms">Terms</a>
+        <a class="nav-link" href="/privacy">Privacy</a>
+        <a class="btn-discord small" href="https://discord.com/api/oauth2/authorize?client_id=844489130822074390&amp;permissions=137439266880&amp;scope=bot%20applications.commands"><svg aria-hidden="true" viewBox="0 0 16 16" fill="currentColor"><use href="#discord"/></svg>Add to Discord</a>
     </div>
 </nav>
-<section>
-    <h2 style="text-align: center">{{ title }}</h2>
-    <h3 style="text-align: center">{{ description }}</h3>
-</section>
-<section>
-  <div style="max-width: 800px; margin: 0 auto;">
-    <video controls style="max-width: 100%; height: auto;">
-    <source src="{{ video_url }}" type="video/mp4">
-    Your browser does not support the video tag.
-    </video>
-  </div>
-</section>
+
+<main class="viewer">
+    <canvas class="ambient" width="32" height="18" aria-hidden="true"></canvas>
+    <div class="wrap">
+        <div class="player">
+            <video src="{{ video_url }}" {% if image %}poster="{{ image }}" {% endif %}controls autoplay
+                   playsinline preload="auto"></video>
+            <div class="player-error" role="alert">
+                <h2>This video couldn't be loaded</h2>
+                <p>The link may have expired, or the file isn't a video your browser can play.</p>
+                <a class="btn-ghost" id="open-direct" target="_blank" rel="noopener" hidden>Open the video link</a>
+            </div>
+        </div>
+
+        <div class="details">
+            <div>
+                <h1>{{ title }}</h1>
+                <p>{{ description }}</p>
+            </div>
+            <div class="actions">
+                <button class="btn-ghost" type="button" id="download" data-name="{{ text or '' }}">Download video</button>
+                <button class="btn-ghost" type="button" id="copy">Copy link</button>
+            </div>
+        </div>
+        <p class="status" id="status" role="status"></p>
+
+        <div class="invite">
+            <p>See skins from your own VALORANT Store with Cypher's Laptop in Discord.</p>
+            <a class="btn-discord" href="https://discord.com/api/oauth2/authorize?client_id=844489130822074390&amp;permissions=137439266880&amp;scope=bot%20applications.commands"><svg aria-hidden="true" viewBox="0 0 16 16" fill="currentColor"><use href="#discord"/></svg>Add to Discord</a>
+        </div>
+    </div>
+</main>
+
 <footer>
-    <div class="container">
-        <p>© Copyright Argon 2022. All Rights Reserved.</p>
+    <div class="wrap">
+        <p>© Copyright Nogra 2026. All Rights Reserved.</p>
+        <ul>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+        </ul>
         <p>Cypher's Laptop is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or
             anyone officially involved in producing or managing Riot Games properties. Riot Games and all associated
             properties are trademarks or registered trademarks of Riot Games, Inc.</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="./privacy/">Privacy</a></li>
-            <li class="list-inline-item"><a href="./terms/">Terms</a></li>
-        </ul>
     </div>
 </footer>
-<script src="./static/bootstrap/js/bootstrap.min.js"></script>
-<script src="./static/js/new-age.js"></script>
+
+<script>
+(function () {
+    "use strict";
+
+    var player = document.querySelector('.player');
+    var video = player.querySelector('video');
+    var canvas = document.querySelector('.ambient');
+    var ctx = canvas.getContext('2d');
+    var status = document.getElementById('status');
+    var downloadBtn = document.getElementById('download');
+    var copyBtn = document.getElementById('copy');
+
+    // Only ever link to or fetch http(s) URLs
+    var videoUrl = null;
+    try {
+        var parsed = new URL(video.getAttribute('src'), location.href);
+        if (parsed.protocol === 'http:' || parsed.protocol === 'https:') videoUrl = parsed.href;
+    } catch (e) {}
+
+    function fail() {
+        player.classList.add('failed');
+        canvas.classList.remove('on');
+        downloadBtn.disabled = true;
+        if (videoUrl) {
+            var link = document.getElementById('open-direct');
+            link.href = videoUrl;
+            link.hidden = false;
+        }
+    }
+
+    if (!videoUrl || video.error) fail();
+    video.addEventListener('error', fail);
+
+    // Ambient glow. Drawing cross-origin media onto a canvas is allowed; it only
+    // blocks reading pixels back, which we never do.
+    function paint(source) {
+        if (player.classList.contains('failed')) return;
+        try {
+            ctx.drawImage(source, 0, 0, canvas.width, canvas.height);
+            canvas.classList.add('on');
+        } catch (e) {}
+    }
+
+    // Paint once and fade in: from the thumbnail if there is one, otherwise from
+    // the video a second in (skin videos often open on a dark frame).
+    var poster = video.getAttribute('poster');
+    if (poster) {
+        var img = new Image();
+        img.onload = function () { paint(img); };
+        img.src = poster;
+    } else {
+        video.addEventListener('timeupdate', function onTime() {
+            if (video.currentTime < 1) return;
+            video.removeEventListener('timeupdate', onTime);
+            paint(video);
+        });
+    }
+
+    // Copy link
+    var copyReset;
+    copyBtn.addEventListener('click', function () {
+        if (!navigator.clipboard) {
+            status.textContent = "Couldn't copy the link. Copy it from your address bar instead.";
+            return;
+        }
+        navigator.clipboard.writeText(location.href).then(function () {
+            copyBtn.textContent = 'Link copied';
+            clearTimeout(copyReset);
+            copyReset = setTimeout(function () { copyBtn.textContent = 'Copy link'; }, 2000);
+        }, function () {
+            status.textContent = "Couldn't copy the link. Copy it from your address bar instead.";
+        });
+    });
+
+    // Download. Fetching as a blob lets us save it with a filename; hosts that
+    // block cross-origin requests fall back to opening the file in a new tab.
+    downloadBtn.addEventListener('click', function () {
+        if (!videoUrl) return;
+        // Name the file after the variant when we have one, since the file names are IDs
+        var fileName = decodeURIComponent(new URL(videoUrl).pathname.split('/').pop());
+        var ext = (fileName.match(/\.[a-z0-9]+$/i) || [''])[0];
+        var base = downloadBtn.dataset.name.replace(/[\\/:*?"<>|]/g, '').trim()
+            || fileName.slice(0, fileName.length - ext.length) || 'video';
+        var name = base + (ext || '.mp4');
+        downloadBtn.setAttribute('aria-busy', 'true');
+        downloadBtn.textContent = 'Downloading…';
+        status.textContent = '';
+
+        fetch(videoUrl).then(function (res) {
+            if (!res.ok) throw new Error(res.status);
+            return res.blob();
+        }).then(function (blob) {
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = name;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        }).catch(function () {
+            var opened = window.open(videoUrl, '_blank', 'noopener');
+            if (!opened) {
+                status.textContent = "Couldn't download the video here. Right-click the player and choose Save video as.";
+            }
+        }).then(function () {
+            downloadBtn.removeAttribute('aria-busy');
+            downloadBtn.textContent = 'Download video';
+        });
+    });
+})();
+</script>
 </body>
 </html>
