@@ -1,9 +1,22 @@
 import time
 
-from flask import Flask, redirect, render_template, request, abort, jsonify, Response
+from flask import Flask, redirect, render_template, request, abort, jsonify, Response, g
 import os
 
 app = Flask(__name__)
+
+
+@app.before_request
+def start_request_timer():
+    g.request_started_at = time.perf_counter()
+
+
+@app.after_request
+def add_server_timing(response):
+    duration_ms = (time.perf_counter() - g.request_started_at) * 1000
+    response.headers.add('Server-Timing', f'app;dur={duration_ms:.2f}')
+    return response
+
 
 @app.route('/invite')
 def invite():
