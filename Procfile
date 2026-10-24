@@ -1,1 +1,1 @@
-web: hypercorn -b 0.0.0.0:$PORT main:app --config file:config.py
+web: python main.py

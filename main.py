@@ -4,6 +4,7 @@ from flask import Flask, redirect, render_template, request, abort, jsonify, Res
 import os
 
 app = Flask(__name__)
+app.config['START_TIME'] = time.time()
 
 
 @app.before_request
@@ -111,6 +112,6 @@ def get_status():
 
 
 if __name__ == '__main__':
-    # from waitress import serve
-    app.config['START_TIME'] = time.time()
-    app.run(host="0.0.0.0", port=8080)
+    from waitress import serve
+
+    serve(app, host="0.0.0.0", port=int(os.getenv("PORT", "8080")))
