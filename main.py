@@ -20,7 +20,7 @@ def add_server_timing(response):
 
 @app.route('/invite')
 def invite():
-    return redirect('https://discord.com/oauth2/authorize?client_id=844489130822074390&permissions=313344&scope=bot')
+    return redirect('https://discord.com/oauth2/authorize?client_id=1379762215447695481&permissions=313344&scope=bot')
 
 @app.route('/video')
 def video():
