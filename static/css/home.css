@@ -283,6 +283,19 @@ a {
   margin-bottom: 12px;
 }
 
+.feature-commands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em 0.65em;
+  margin-bottom: 12px;
+}
+
+.feature-commands .cmd + .cmd::before {
+  content: '•';
+  margin-right: 0.65em;
+  color: var(--muted);
+}
+
 .feature h3 {
   margin: 0 0 12px;
   font-size: 1.625rem;
